@@ -201,6 +201,11 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# Flask environment variables
+*.env
+# Local database
+*.sqlite3
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
