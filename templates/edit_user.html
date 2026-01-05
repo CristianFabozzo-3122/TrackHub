@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center py-5">
+    <div class="col-md-8">
+        
+        <div class="card shadow border-success">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0"><i class="bi bi-person-gear"></i> Edit User Profile</h4>
+            </div>
+            <div class="card-body">
+                
+                <form id="edit-form">
+                    
+                    <div class="mb-3">
+                        <label for="input-username" class="form-label">Username</label>
+                        <input type="text" class="form-control bg-light" id="input-username" name="username" readonly>
+                        <div class="form-text">Username cannot be changed.</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="input-first-name" class="form-label">First Name *</label>
+                            <input type="text" class="form-control" id="input-first-name" name="first_name" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="input-last-name" class="form-label">Last Name *</label>
+                            <input type="text" class="form-control" id="input-last-name" name="last_name" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="input-email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="input-email" name="email" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="input-phone" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="input-phone" name="phone">
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="mb-3">
+                        <label for="select-role" class="form-label">System Role *</label>
+                        <select class="form-select" id="select-role" name="role" required>
+                            <option value="technician">Technician</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                        <div id="role-warning" class="form-text text-danger d-none">
+                            <i class="bi bi-exclamation-triangle-fill"></i> 
+                            Warning: Users with existing intervention history cannot be promoted to Admin.
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row gap-3 justify-content-md-end mt-4">
+                        <a href="/users" id="btn-cancel" class="btn btn-light">Cancel</a>
+                        
+                        <button type="submit" class="btn btn-success text-white">
+                            <i class="bi bi-save"></i> Save Changes
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/edit_user.js"></script>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="dashboard-container" data-user-id="{{ current_user.user_id }}" class="py-5">
+        <h1>Dashboard</h1>
+        <p class="lead">Welcome to TrackHub School Management System.</p>
+    </div>
+
+    <div class="row g-5">
+        
+        <div class="col-md-6">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1>My activity</h1>
+                <button type="button" id="btn-export-activity" class="btn btn-sm btn-success" title="Export My Activity">
+                    <i class="bi bi-file-earmark-spreadsheet"></i> Export CSV
+                </button>
+            </div>
+
+            <div class="table-responsive shadow-sm bg-white rounded">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light text-secondary small text-uppercase">
+                        <tr>
+                            <th class="ps-4">Date</th> 
+                            <th>Equipment</th>
+                            <th>Outcome</th>
+                            <th class="text-end pe-4">View</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activityTableBody">
+                        </tbody>
+                </table>
+            </div>
+
+            <div id="pagination-activity-container" class="d-flex flex-column align-items-center mt-3 d-none">
+                <nav aria-label="Activity navigation">
+                    <ul class="pagination pagination-sm mb-1" id="pagination-activity-list"></ul>
+                </nav>
+                <small id="pagination-activity-info" class="text-muted"></small>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="text-danger">Priority list</h1>
+                <button type="button" id="btn-export-priority" class="btn btn-sm btn-success" title="Export Priority List">
+                    <i class="bi bi-file-earmark-spreadsheet"></i> Export CSV
+                </button>
+            </div>
+
+            <div class="table-responsive shadow-sm bg-white rounded">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light text-secondary small text-uppercase">
+                        <tr>
+                            <th class="ps-4">Device</th> 
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th class="text-end pe-4">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="priorityTableBody">
+                        </tbody>
+                </table>
+            </div>
+
+            <div id="pagination-priority-container" class="d-flex flex-column align-items-center mt-3 d-none">
+                <nav aria-label="Priority navigation">
+                    <ul class="pagination pagination-sm mb-1" id="pagination-priority-list"></ul>
+                </nav>
+                <small id="pagination-priority-info" class="text-muted"></small>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/homeTech.js"></script>
+{% endblock %}

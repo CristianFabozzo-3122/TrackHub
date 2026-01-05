@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="py-5">
+        <h1>Admin Dashboard</h1>
+        <p class="lead">Overview of system performance and inventory health.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-4 col-12">
+            <div class="card shadow-sm border-0 bg-secondary text-white h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Assets</h5>
+                    <h1 class="display-4 fw-bold" id="kpi-assets">--</h1>
+                    <i class="bi bi-pc-display fs-1 opacity-50"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="card shadow-sm border-0 bg-secondary text-white h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Interventions</h5>
+                    <h1 class="display-4 fw-bold" id="kpi-interventions">--</h1>
+                    <i class="bi bi-tools fs-1 opacity-50"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="card shadow-sm border-0 bg-secondary text-white h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Active Technicians</h5>
+                    <h1 class="display-4 fw-bold" id="kpi-techs">--</h1>
+                    <i class="bi bi-people fs-1 opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-5 mb-5">
+        <div class="col-md-6 col-12">
+            <div class="card shadow-sm h-100">
+                <div class="card-header bg-white fw-bold">
+                    Inventory Status Distribution
+                </div>
+                <div class="card-body">
+                    <canvas id="chartStatus"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-12">
+            <div class="card shadow-sm h-100">
+                <div class="card-header bg-white fw-bold">
+                    Top 5 Technicians (By Workload)
+                </div>
+                <div class="card-body">
+                    <canvas id="chartTechs"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/static/js/homeAdmin.js"></script>
+{% endblock %}

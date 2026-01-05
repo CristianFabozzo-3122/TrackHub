@@ -1,0 +1,45 @@
+/* 1. FONTS */
+/*
+@font-face {
+    font-family: 'GilroyMedium';
+    src: url('../fonts/Gilroy-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GilroyRegular';
+    src: url('../fonts/Gilroy-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'GilroyBold';
+    src: url('../fonts/Gilroy-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'GilroyLight';
+    src: url('../fonts/Gilroy-Light.ttf') format('truetype');
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'GilroyMedium';
+    color: #333E63;
+}
+
+p,a, .gilroy-regular {
+    font-family: 'GilroyRegular';
+}
+
+b, strong{
+    font-family: 'GilroyBold';
+}
+
+.light{
+    font-family: 'GilroyLight';
+}
+
+.link{
+    color: #1162EB;
+}
+
+.subtext{
+    color: #949494;
+}
+*/

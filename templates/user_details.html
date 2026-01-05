@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid pt-5">
+<a href="/users" class="text-decoration-none text-muted d-flex align-items-md-center">
+    <i class="bi bi-arrow-left me-2"></i> Back to Users
+</a>
+</div>
+
+<div class="pt-5 pb-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>User Profile</h1>
+        </div>
+        <div class="col-12">
+            <div id="action-buttons" class="d-flex justify-content-center align-items-center gap-2 py-3 d-none">
+                <a id="btn-edit-link" href="#" class="btn btn-warning">
+                    <i class="bi bi-pencil-square"></i> Edit
+                </a>
+                <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <i class="bi bi-trash"></i> Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    
+    <div class="col-md-4 mb-4" id="profile-col">
+        
+        <div class="card shadow-sm mb-3">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0" id="detail-name">Loading...</h5>
+            </div>
+            <div class="card-body">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <small class="text-muted">System Role</small><br>
+                        <div id="detail-role-container">...</div>
+                    </li>
+                    <li class="list-group-item">
+                        <small class="text-muted">Email Address</small><br>
+                        <strong id="detail-email">...</strong>
+                    </li>
+                    <li class="list-group-item">
+                        <small class="text-muted">Phone Number</small><br>
+                        <span class="font-monospace" id="detail-phone">...</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-muted text-center">
+                <small>User ID: #<span id="detail-id">...</span></small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-8 pb-5" id="history-col">
+        <div class="card shadow-sm">
+            
+            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-activity"></i> Activity History</h5>
+            </div>
+            
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-sm mb-0 align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="py-2">Date</th>
+                                <th class="py-2">Equipment</th>
+                                <th class="py-2">Work Description</th>
+                                <th class="py-2">Outcome</th>
+                            </tr>
+                        </thead>
+                        <tbody id="interventions-body">
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="loading-interventions" class="text-center py-4 text-muted d-none">
+                     <div class="spinner-border spinner-border-sm text-secondary" role="status"></div> Loading activity...
+                </div>
+
+                <div id="empty-interventions" class="text-center py-5 text-muted d-none">
+                    <i class="bi bi-clipboard-x display-1 text-light mb-3"></i>
+                    <h4>No activity recorded</h4>
+                    <p>This user has not performed any interventions yet.</p>
+                </div>
+            </div>
+
+            <div class="card-footer bg-white border-top-0 d-none" id="pagination-container">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <div id="pagination-info" class="text-muted small mb-2 mb-md-0"></div>
+                    
+                    <nav aria-label="Activity history navigation">
+                        <ul class="pagination pagination-sm mb-0" id="pagination-controls">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title">Confirm Deletion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete <strong id="modal-delete-name">this user</strong>?</p>
+                    <p class="text-danger small">
+                        <i class="bi bi-exclamation-triangle-fill"></i> 
+                        Warning: Deleting a user might affect historical intervention records associated with them.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="btn-confirm-delete">Yes, Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/user_details.js"></script>
+{% endblock %}

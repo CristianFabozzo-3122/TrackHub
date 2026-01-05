@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid pt-5">
+<a href="/equipment" class="text-decoration-none text-muted d-flex align-items-md-center">
+    <i class="bi bi-arrow-left me-2"></i> Back to Equipment
+</a>
+</div>
+
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0"><i class="bi bi-plus-circle"></i> New Device</h4>
+                </div>
+                <div class="card-body">
+                    
+                    <form id="create-form">
+                        
+                        <div class="mb-3">
+                            <label for="input-name" class="form-label">Name or Label *</label>
+                            <input type="text" class="form-control" id="input-name" required 
+                                   placeholder="e.g. PC-LAB1-01">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="select-type" class="form-label">Device Type *</label>
+                                <select class="form-select" id="select-type" required>
+                                    <option value="" selected disabled>Loading...</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="select-status" class="form-label">Initial Status *</label>
+                                <select class="form-select" id="select-status" required>
+                                    <option value="" selected disabled>Loading...</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="select-location" class="form-label">Location *</label>
+                            <select class="form-select" id="select-location" required>
+                                <option value="" selected disabled>Loading...</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="input-description" class="form-label">Notes / Description</label>
+                            <textarea class="form-control" id="input-description" rows="3" 
+                                      placeholder="Technical specs, serial number..."></textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="/equipment" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-save"></i> Create Device
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/new_equipment.js"></script>
+{% endblock %}

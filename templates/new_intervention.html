@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid pt-5">
+    <a href="/interventions" class="text-decoration-none text-muted d-flex align-items-md-center">
+        <i class="bi bi-arrow-left me-2"></i> Back to Interventions
+    </a>
+</div>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0"><i class="bi bi-tools"></i> New Intervention</h4>
+                </div>
+
+                <div class="card-body">
+                    
+                    <form id="create-intervention-form">
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="select-technician" class="form-label">Technician *</label>
+                                <select class="form-select" id="select-technician" required>
+                                    <option value="" selected disabled>Loading...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="input-date" class="form-label">Date *</label>
+                                <input type="date" class="form-control" id="input-date" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="select-equipment" class="form-label">Equipment / Device *</label>
+                            <select class="form-select" id="select-equipment" required>
+                                <option value="" selected disabled>Loading...</option>
+                            </select>
+                            <div class="form-text">Select the device receiving maintenance.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="select-outcome" class="form-label">Outcome Status *</label>
+                            <select class="form-select" id="select-outcome" required>
+                                <option value="" selected disabled>Loading...</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="input-description" class="form-label">Description of Work *</label>
+                            <textarea class="form-control" id="input-description" rows="4" required
+                                      placeholder="Describe the issue and the actions taken..."></textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="/interventions" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-save"></i> Save Intervention
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/new_intervention.js"></script>
+{% endblock %}
